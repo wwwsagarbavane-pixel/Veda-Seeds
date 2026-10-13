@@ -1,0 +1,24 @@
+# Python scratch scripts
+*.py
+__pycache__/
+
+# Scratch and debug test images
+test_*
+debug_*
+curve_check*
+crop_graphic*
+crop_target*
+crop_ss*
+crop_blended*
+edge_view*
+comp_*
+composite_*
+frame4_*
+group2_*
+group_2_*
+target_hero*
+overlay_*
+mask_*
+sec[0-9]_*
+ref_*
+*.log
