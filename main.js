@@ -34,6 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 1b. Mobile Hamburger Toggle
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const navMenu = document.querySelector('.nav-menu');
+  if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenuToggle.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+      }
+    });
+  }
+
   // 2. Active Nav Link on Scroll
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id], header[id]');
@@ -241,18 +266,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero Image Subtle Mouse Parallax
+  // Hero Image Subtle Mouse Parallax (Only on Desktop with Hover Support)
   const heroSection = document.querySelector('.hero-section');
   const heroFarmerImg = document.getElementById('heroFarmerImg');
   if (heroSection && heroFarmerImg) {
     heroSection.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 992) return;
       const rect = heroSection.getBoundingClientRect();
       const normX = (e.clientX - rect.left) / rect.width - 0.5;
       const normY = (e.clientY - rect.top) / rect.height - 0.5;
       heroFarmerImg.style.transform = `translate(${normX * -12}px, ${normY * -8}px)`;
     });
     heroSection.addEventListener('mouseleave', () => {
-      heroFarmerImg.style.transform = '';
+      if (window.innerWidth > 992) {
+        heroFarmerImg.style.transform = '';
+      }
     });
   }
 

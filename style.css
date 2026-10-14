@@ -2138,34 +2138,58 @@ body {
   .hero-section {
     height: auto;
     min-height: auto;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 88px;
+    padding-bottom: 48px;
     flex-direction: column;
+    align-items: center;
   }
   .hero-visual-bg {
+    order: 1;
     position: relative;
     width: 100%;
-    height: 380px;
-    order: 1;
-    overflow: hidden;
+    max-width: 500px;
+    height: auto;
+    margin: 8px auto 24px auto;
+    padding: 0 20px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .hero-graphic-layer {
     position: relative;
     top: 0;
     right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     width: 100%;
-    max-width: 600px;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    filter: drop-shadow(0 14px 32px rgba(11, 58, 36, 0.12));
   }
   .hero-content-container {
     order: 2;
-    max-width: 100%;
-    margin: 0;
-    padding: 28px 32px 10px 32px;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 10px 24px 0 24px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    justify-content: center;
+  }
+  .gold-accent-line {
+    margin: 12px auto 18px auto;
+  }
+  .hero-description {
+    margin: 0 auto 28px auto;
+    max-width: 520px;
+  }
+  .hero-actions {
+    justify-content: center;
   }
 
   .why-choose-grid {
@@ -2229,6 +2253,10 @@ body {
   /* Header Mobile */
   .site-header {
     padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(11, 58, 36, 0.08);
   }
   .header-inner {
     padding: 0;
@@ -2250,6 +2278,7 @@ body {
     padding: 7px 12px;
     font-size: 11px;
     gap: 5px;
+    white-space: nowrap;
   }
   .btn-enquiry svg {
     display: none;
@@ -2259,42 +2288,92 @@ body {
     font-size: 11px;
   }
 
-  /* Hero Section Mobile */
+  /* Hero Section Mobile: Image UPPER, Text NICHE */
   .hero-section {
-    padding-top: 68px;
-    padding-bottom: 24px;
+    padding-top: 74px;
+    padding-bottom: 36px;
     background: #ffffff;
+    flex-direction: column;
+    align-items: center;
   }
   .hero-visual-bg {
-    height: 290px;
+    order: 1;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 4px auto 16px auto;
+    padding: 0 16px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .hero-graphic-layer {
+    position: relative;
+    top: 0;
+    right: auto;
+    left: 0;
+    transform: none;
+    width: 100%;
     max-width: 100%;
-    height: 100%;
-    object-position: center top;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    filter: drop-shadow(0 14px 30px rgba(11, 58, 36, 0.12));
   }
   .hero-content-container {
-    padding: 20px 16px 10px 16px;
+    order: 2;
+    padding: 4px 20px 0 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
   }
   .hero-eyebrow {
-    font-size: 9.5px;
-    gap: 6px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--color-primary-forest);
+    background: rgba(11, 58, 36, 0.05);
+    border: 1px solid rgba(11, 58, 36, 0.1);
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    margin: 0 auto 12px auto;
   }
   .hero-title {
-    font-size: 32px;
+    font-size: clamp(28px, 7.5vw, 36px);
     line-height: 1.15;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-dark);
+  }
+  .hero-title .title-line {
+    display: block;
+  }
+  .gold-accent-line {
+    margin: 10px auto 14px auto;
   }
   .hero-description {
-    font-size: 13.5px;
-    line-height: 1.55;
-    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 auto 20px auto;
+    max-width: 440px;
+    color: var(--color-text-muted);
   }
   .hero-actions {
+    display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
     width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
     gap: 12px;
   }
   .hero-actions .btn-primary,
@@ -2302,7 +2381,21 @@ body {
     width: 100%;
     justify-content: center;
     padding: 13px 20px;
-    font-size: 14px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+  }
+
+  @media (min-width: 480px) and (max-width: 768px) {
+    .hero-actions {
+      flex-direction: row;
+      max-width: 440px;
+    }
+    .hero-actions .btn-primary,
+    .hero-actions .btn-outline {
+      width: auto;
+      flex: 1;
+    }
   }
 
   /* Section Gaps on Mobile */
