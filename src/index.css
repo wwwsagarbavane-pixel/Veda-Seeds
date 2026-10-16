@@ -304,6 +304,10 @@ body {
   color: var(--color-primary-dark);
 }
 
+.nav-link:not(.active) .nav-active-bar {
+  display: none !important;
+}
+
 .nav-active-bar {
   position: absolute;
   bottom: 0;
@@ -1204,7 +1208,7 @@ body {
 .products-section {
   position: relative;
   width: 100%;
-  background: #ffffff url('botanical_cream_bg.png') no-repeat center top / cover;
+  background: #ffffff url('/botanical_cream_bg.png') no-repeat center top / cover;
   padding: 100px 0 95px 0;
   margin: 50px 0;
   overflow: hidden;
